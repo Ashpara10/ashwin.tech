@@ -21,7 +21,7 @@ export type BlogType = {
       description: string;
       icon: string;
     };
-    source: {};
+    source: any;
   };
 };
 

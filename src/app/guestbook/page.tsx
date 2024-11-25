@@ -16,7 +16,6 @@ const q = query(collection(db, "chat"));
 const Page = () => {
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState<User | null>(null);
-  const [open, setOpen] = useState(false);
   const [chat, setChat] = useState<QuerySnapshot<DocumentData, DocumentData>>();
   useEffect(() => {
     onSnapshot(q, (querySnapshot) => {

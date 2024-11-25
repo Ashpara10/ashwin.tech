@@ -97,7 +97,7 @@ export const getTracksFromSpotify = async (ids: string[]) => {
     `https://api.spotify.com/v1/tracks?ids=${ids.join(",")}`,
     {
       headers: {
-        Authorization: `Bearer BQAP7_FSQf717q_NTMshI684OEJLKS9_s6jASIcMda2rljkc_hH8d8wvGBa96dzoUT33kHSfcOIb5o-LHPYuUP7eLwtDuiDF9_xLp1AvbU4pHIEWTJTFkm1OzrKZp7XjbPDKoffEEas-Z_yY2_f8bWQWI20z3lyaQRclCHHuKoGEIJAbm_s9xcCMBC52tyUurUxCxxKfNDgFHteOB0aW-g`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_SPOTIFY_ACCESS_TOKEN}`,
       },
     }
   );

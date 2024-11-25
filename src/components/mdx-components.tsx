@@ -1,9 +1,17 @@
 "use client";
-import { Info } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-const AnchorTag = (props: any) => {
+type AnchorTagProps = {
+  href: string;
+  children: React.ReactNode;
+};
+
+type Props = {
+  children: React.ReactNode;
+};
+
+const AnchorTag = (props: AnchorTagProps) => {
   return (
     <a
       target="_blank"
@@ -15,7 +23,7 @@ const AnchorTag = (props: any) => {
     </a>
   );
 };
-const StyledHeading1 = (props: any) => {
+const StyledHeading1 = (props: Props) => {
   return (
     <>
       <h1 className="mt-1.5 tracking-tight leading-tight text-lg opacity-95 font-medium  py-1 dark:text-gray-50">
@@ -25,13 +33,7 @@ const StyledHeading1 = (props: any) => {
   );
 };
 
-export const BlockQuote = (props: any) => {
-  const [colorScheme, setColorScheme] = useState({
-    bg: "#afd89d",
-    color: "#13250e",
-    icon: <Info />,
-  });
-
+export const BlockQuote = (props: Props) => {
   return (
     <blockquote
       className={`border-l-[4px] py-1.5 px-4 dark:border-neutral-900 italic opacity-80`}
@@ -41,14 +43,14 @@ export const BlockQuote = (props: any) => {
   );
 };
 
-const StyledHeading2 = (props: any) => {
+const StyledHeading2 = (props: Props) => {
   return (
     <h2 className="mt-1.5 tracking-tight leading-tight text-lg opacity-95 font-medium py-1 ">
       {props.children}
     </h2>
   );
 };
-const StyledHeading3 = (props: any) => {
+const StyledHeading3 = (props: Props) => {
   return (
     <h3 className="mt-1.5 text-lg opacity-95 font-medium py-1 ">
       {props.children}
@@ -56,14 +58,14 @@ const StyledHeading3 = (props: any) => {
   );
 };
 
-const UnorderedList = (props: any) => {
+const UnorderedList = (props: Props) => {
   return (
     <ul className="w-full opacity-90 list-inside px-3 md:p-0 list-disc flex gap-y-1.5 mt-2  flex-col   ">
       {props.children}
     </ul>
   );
 };
-const OrderedList = (props: any) => {
+const OrderedList = (props: Props) => {
   return (
     <ol className="w-full opacity-90 list-decimal px-3 md:p-0 list-inside flex gap-y-1.5 mt-2 flex-col ">
       {props.children}
@@ -71,7 +73,7 @@ const OrderedList = (props: any) => {
   );
 };
 
-const RoundedImage = (props: any) => {
+const RoundedImage = (props: { src: string }) => {
   const [IsImageLoaded, setIsImageLoaded] = useState(true);
 
   return (
@@ -90,11 +92,11 @@ const RoundedImage = (props: any) => {
   );
 };
 
-const StrongTag = (props: any) => {
+const StrongTag = (props: Props) => {
   return <strong className=" font-medium ">{props.children}</strong>;
 };
 
-const Para = (props: any) => {
+const Para = (props: Props) => {
   return (
     <p className="w-ful text-base dark:text-white/80 text-black/80  ">
       {props.children}

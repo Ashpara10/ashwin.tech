@@ -1,7 +1,6 @@
 import { Track } from "@/lib/utils";
-import React, { FC } from "react";
+import { FC } from "react";
 import TrackCard from "../track-card";
-import { div } from "framer-motion/client";
 
 const TopTracks: FC<{ tracks: Track[]; isLoading: boolean }> = ({
   tracks,
@@ -15,9 +14,12 @@ const TopTracks: FC<{ tracks: Track[]; isLoading: boolean }> = ({
       </span>
       <div className="flex flex-col space-y-2 mt-4">
         {isLoading
-          ? [...Array(4)].map((_, i) => {
+          ? [...Array(4)].map((i) => {
               return (
-                <div className="w-full bg-neutral-300 rounded-lg h-[80px] dark:bg-dark-bg_soft"></div>
+                <div
+                  key={i}
+                  className="w-full bg-neutral-300 rounded-lg h-[80px] dark:bg-dark-bg_soft"
+                ></div>
               );
             })
           : tracks?.map((track, index) => {

@@ -1,10 +1,10 @@
 "use client";
-import { MDXRemote } from "next-mdx-remote";
-import Image from "next/image";
-import React, { FC } from "react";
-import { MdxComponent } from "./mdx-components";
-import readingTime from "reading-time";
 import { Dot } from "lucide-react";
+import { MDXRemote } from "next-mdx-remote";
+import { FC } from "react";
+import readingTime from "reading-time";
+import { MdxComponent } from "./mdx-components";
+
 type BlogPageProps = {
   metadata: {
     fileName: string;
@@ -19,7 +19,7 @@ type BlogPageProps = {
       description: string;
       icon: string;
     };
-    scope: {};
+    scope: any;
   };
 };
 
@@ -40,6 +40,7 @@ const BlogPage: FC<{ data: BlogPageProps["source"] }> = ({ data }) => {
         <Dot />
         <span>{readingTime(data?.compiledSource?.trim())?.text}</span>
       </div>
+      {/* @ts-ignore   */}
       <MDXRemote lazy {...data} components={MdxComponent} />
     </article>
   );

@@ -10,14 +10,15 @@ export default async function Blogs() {
         {mdxSource
           .sort(
             (a, b) =>
-              (new Date(b?.source?.frontmatter?.createdAt as any) as any) -
-              (new Date(a?.source?.frontmatter?.createdAt as any) as any)
+              new Date(b?.source?.frontmatter?.createdAt as string).getTime() -
+              new Date(a?.source?.frontmatter?.createdAt as string).getTime()
           )
           .map(({ metadata, source }) => {
             return (
               <BlogCard
                 key={metadata?.fileName}
                 metadata={metadata}
+                // @ts-ignore
                 source={source as any}
               />
             );

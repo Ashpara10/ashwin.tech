@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { CornerRightUp } from "lucide-react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +13,6 @@ const HomeSection = () => {
       link: "https://www.linkedin.com/in/ashwin-parande-657653294/",
     },
   ];
-  const { theme } = useTheme();
   return (
     <motion.div id="home" className="max-w-2xl w-full  flex flex-col  ">
       <motion.div className="w-full flex items-center justify-between">
@@ -47,7 +45,7 @@ const HomeSection = () => {
         <span className="my-2 w-full leading-snug opacity-80 md:text-base text-sm">
           Crafting powerful and interactive{" "}
           <b className="font-medium ">web experiences</b>. Currently a sophomore
-          pursuing my bachelor's degree in Computer Applications.
+          pursuing my bachelor&apos;s degree in Computer Applications.
         </span>
         <div className="w-full gap-2 flex flex-wrap mt-2 items-center justify-start">
           <Link

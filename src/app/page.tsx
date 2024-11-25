@@ -16,7 +16,8 @@ const Page = async () => {
   return (
     <div className="w-full px-3 flex flex-col items-center justify-start">
       <HomeSection />
-      <BlogSection blogs={blogs as any} />
+      {/* @ts-ignore */}
+      <BlogSection blogs={blogs} />
       {/* <TopTracks tracks={tracks?.data!} isLoading={tracks.isLoading} /> */}
     </div>
   );
