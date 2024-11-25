@@ -1,7 +1,7 @@
 import BlogPage from "@/components/blog-page";
 import { getBlogBySlug } from "@/lib/actions";
 import { Metadata, ResolvingMetadata } from "next";
-import React, { FC } from "react";
+import { FC } from "react";
 
 type PageProps = {
   params: {
