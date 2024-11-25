@@ -1,0 +1,51 @@
+---
+title: Concurrency in Golang
+image: /go.jpg
+createdAt: 2022-10-02
+description: Covering networking concepts such as protocols passing data and channels in go
+icon: /gopher.jpg
+---
+
+This ensures any pages that straight MDX in my /pages directory will also have the code block features.
+
+And finally, I'm generating an RSS feed in my pages/index.jsx file, so I needed to update that method as well, otherwise, I was getting NextJS build errors.
+
+## Understanding channels in golang
+
+- consider a channel to be a tunnel which helps in passing data between processes
+- Channels enables us to communicate between goroutnies
+
+## Buffered vs Unbuffered channels
+
+```go:main.go {2,10-11} showLineNumbers
+
+package main
+
+import (
+  "fmt"
+  "time"
+)
+
+func main () {
+    start:= time.Now()
+    resp:= make(chan any,2)
+
+    go fetchPosts(resp chan any)
+    go fetchUserLikes(resp chan any)
+
+    for data:=range resp {
+       fmt.Println("response:  ",data)
+    }
+    fmt.Println("took: ",time.Since(start))
+}
+
+```
+
+## Why i transitioned to Typescript and why you should too!
+
+- **Typescript** - provides its retrictions and helps to identify bugs during development of your app.
+- **Security** -Why you should use TypeScript over [JavaScript](http://vitejs.dev)?
+- Image result for why to use typescript
+  In contrast to JavaScript, TypeScript code is more reliable and easier to refactor. This enables developers to evade errors and do rewrites much easier.
+
+You can [view the entire source code here](https://github.com/leerob/youtube-to-mp3). Happy coding! 😄
