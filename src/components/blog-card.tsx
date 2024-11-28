@@ -1,30 +1,29 @@
-import { BlogType } from "@/lib/actions";
+import { Post } from "content-collections";
 import { Dot } from "lucide-react";
 import Link from "next/link";
-import React, { FC } from "react";
-import readingTime from "reading-time";
+import { FC } from "react";
 
-const BlogCard: FC<BlogType> = ({ source, metadata }) => {
+const BlogCard: FC<Post> = (data) => {
   return (
     <Link
-      href={`/blogs/${metadata?.fileName.split(".")[0]}`}
-      key={metadata?.fileName}
+      href={`/blogs/${data?.slug}`}
+      key={data?.slug}
       className="cursor-pointer  p-1 group rounded-lg  transition-colors duration-300"
     >
       <h2 className=" leading-tight tracking-tight hover:underline">
-        {source?.frontmatter.title}
+        {data?.title}
       </h2>
 
       <div className="w-full opacity-75 text-sm flex items-center justify-start ">
         <span className=" ">
-          {new Date(source?.frontmatter?.createdAt).toLocaleString("en", {
+          {new Date(data?.createdAt).toLocaleString("en", {
             month: "long",
             day: "2-digit",
             year: "numeric",
           })}{" "}
         </span>
         <Dot />
-        <span>{readingTime(source?.compiledSource?.trim())?.text}</span>
+        <span>{data?.readingTime}</span>
       </div>
       {/* </div> */}
     </Link>

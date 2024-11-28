@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from "clsx";
+import slug from "slug";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -76,6 +77,10 @@ export type Track = {
   is_local: boolean;
 };
 
+export const getSlug = (str: string) => {
+  return slug(str, { lower: true });
+};
+
 // export const refreshAccessToken = async () => {
 //   const refresh_token = localStorage.getItem("refresh_token");
 //   const res = await fetch("https://accounts.spotify.com/api/token", {
@@ -106,7 +111,6 @@ export const getTracksFromSpotify = async (ids: string[]) => {
     isLoading = false;
     return { data: null, isLoading };
   }
-  console.log(data);
   isLoading = false;
   return { data: data?.tracks as Track[], isLoading };
 };

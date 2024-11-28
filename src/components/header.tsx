@@ -56,7 +56,7 @@ const Header = () => {
   }, []);
   const [show, setShow] = useState(false);
   const router = useRouter();
-
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
   return (
     <header className="fixed top-0 bg-transparent w-full flex items-center justify-center z-20 backdrop-blur-md">
       <nav className=" mx-2 px-2 overflow-hidden bg-transparent  py-2.5  max-w-2xl  w-full flex items-center justify-end">
@@ -70,7 +70,10 @@ const Header = () => {
           <div className="flex z-30 items-center justify-center gap-x-2">
             {hasMounted && (
               <motion.button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() => {
+                  if (!document.startViewTransition()) toggleTheme();
+                  document.startViewTransition(toggleTheme);
+                }}
                 className={cn(
                   "p-2  rounded-xl focus-visible:outline-none text-sm ",
                   theme === "dark" ? "bg-orange-300" : "bg-purple-600"

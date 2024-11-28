@@ -26,7 +26,7 @@ const AnchorTag = (props: AnchorTagProps) => {
 const StyledHeading1 = (props: Props) => {
   return (
     <>
-      <h1 className="mt-1.5 tracking-tight leading-tight text-lg opacity-95 font-medium  py-1 dark:text-gray-50">
+      <h1 className="mt-2 w-full tracking-tight leading-tight text-lg opacity-95 font-medium  py-1 dark:text-gray-50">
         {props.children}
       </h1>
     </>
@@ -36,7 +36,7 @@ const StyledHeading1 = (props: Props) => {
 export const BlockQuote = (props: Props) => {
   return (
     <blockquote
-      className={`border-l-[4px] py-1.5 px-4 dark:border-neutral-900 italic opacity-80`}
+      className={`border-l-[4px] w-full py-1.5 px-4 dark:border-neutral-900 italic opacity-80`}
     >
       {props?.children}
     </blockquote>
@@ -45,14 +45,14 @@ export const BlockQuote = (props: Props) => {
 
 const StyledHeading2 = (props: Props) => {
   return (
-    <h2 className="mt-1.5 tracking-tight leading-tight text-lg opacity-95 font-medium py-1 ">
+    <h2 className="mt-2 w-full tracking-tight leading-tight text-lg opacity-95 font-medium py-1 ">
       {props.children}
     </h2>
   );
 };
 const StyledHeading3 = (props: Props) => {
   return (
-    <h3 className="mt-1.5 text-lg opacity-95 font-medium py-1 ">
+    <h3 className="mt-2 w-full text-lg opacity-95 font-medium py-1 ">
       {props.children}
     </h3>
   );
@@ -98,7 +98,7 @@ const StrongTag = (props: Props) => {
 
 const Para = (props: Props) => {
   return (
-    <p className="w-ful text-base dark:text-white/80 text-black/80  ">
+    <p className="w-full text-base dark:text-white/80 text-black/80  ">
       {props.children}
     </p>
   );

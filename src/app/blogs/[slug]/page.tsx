@@ -1,11 +1,16 @@
 import BlogPage from "@/components/blog-page";
-import { getBlogBySlug } from "@/lib/actions";
+// import { getBlogBySlug } from "@/lib/actions";
+import { allPosts } from "content-collections";
 import { Metadata } from "next";
 import { FC } from "react";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+const getBlogBySlug = async (slug: string) => {
+  return allPosts.find((post) => post.slug === slug);
 };
 
 export async function generateMetadata({
@@ -16,8 +21,8 @@ export async function generateMetadata({
   const blog = await getBlogBySlug(slug);
   console.log(blog);
   return {
-    title: `${blog.frontmatter.title} | Ashwin Parande`,
-    description: blog.frontmatter.description as string,
+    title: `${blog?.title} | Ashwin Parande`,
+    description: blog?.description as string,
   };
 }
 
@@ -26,9 +31,9 @@ const Page: FC<PageProps> = async ({ params }) => {
   const blog = await getBlogBySlug(slug);
 
   return (
-    <div className="w-full flex flex-col px-3 items-center justify-center min-h-screen">
+    <div className="w-full flex flex-col px-3 items-center justify-start min-h-screen">
       {/* @ts-ignore */}
-      <BlogPage data={blog as any} />
+      <BlogPage data={blog} />
     </div>
   );
 };

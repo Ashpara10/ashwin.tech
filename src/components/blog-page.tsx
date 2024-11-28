@@ -1,9 +1,10 @@
 "use client";
 import { Dot } from "lucide-react";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXContent } from "@content-collections/mdx/react";
 import { FC } from "react";
 import readingTime from "reading-time";
 import { MdxComponent } from "./mdx-components";
+import { Post } from "content-collections";
 
 type BlogPageProps = {
   metadata: {
@@ -23,25 +24,25 @@ type BlogPageProps = {
   };
 };
 
-const BlogPage: FC<{ data: BlogPageProps["source"] }> = ({ data }) => {
+const BlogPage: FC<{ data: Post }> = ({ data }) => {
   return (
     <article className="w-full max-w-xl flex flex-col  pb-10 items-center justify-center">
       <h2 className="tracking-tight  w-full text-left font-medium text-xl">
-        {data?.frontmatter?.title}
+        {data?.title}
       </h2>
       <div className="w-full opacity-75 text-sm flex items-center justify-start mb-4">
         <span className=" ">
-          {new Date(data?.frontmatter?.createdAt).toLocaleString("en", {
+          {new Date(data?.createdAt).toLocaleString("en", {
             month: "long",
             day: "2-digit",
             year: "numeric",
           })}{" "}
         </span>
         <Dot />
-        <span>{readingTime(data?.compiledSource?.trim())?.text}</span>
+        <span>{data?.readingTime}</span>
       </div>
       {/* @ts-ignore   */}
-      <MDXRemote lazy {...data} components={MdxComponent} />
+      <MDXContent code={data?.mdxSource} components={MdxComponent} />
     </article>
   );
 };

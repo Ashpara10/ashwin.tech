@@ -1,27 +1,17 @@
 import BlogCard from "@/components/blog-card";
-import { getBlogs } from "@/lib/actions";
+import { allPosts } from "content-collections";
 
 export default async function Blogs() {
-  const mdxSource = await getBlogs();
-
   return (
     <div className="w-full flex flex-col items-center justify-center">
       <section className="max-w-2xl gap-y-3 w-full flex flex-col ">
-        {mdxSource
+        {allPosts
           .sort(
             (a, b) =>
-              new Date(b?.source?.frontmatter?.createdAt as string).getTime() -
-              new Date(a?.source?.frontmatter?.createdAt as string).getTime()
+              new Date(b?.createdAt).getTime() - new Date(a.createdAt).getTime()
           )
-          .map(({ metadata, source }) => {
-            return (
-              <BlogCard
-                key={metadata?.fileName}
-                metadata={metadata}
-                // @ts-ignore
-                source={source as any}
-              />
-            );
+          .map((data, i) => {
+            return <BlogCard key={i} {...data} />;
           })}
       </section>
     </div>
