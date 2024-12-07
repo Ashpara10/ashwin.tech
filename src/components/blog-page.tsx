@@ -5,6 +5,7 @@ import { FC } from "react";
 import readingTime from "reading-time";
 import { MdxComponent } from "./mdx-components";
 import { Post } from "content-collections";
+import ViewCount from "./views";
 
 type BlogPageProps = {
   metadata: {
@@ -40,6 +41,7 @@ const BlogPage: FC<{ data: Post }> = ({ data }) => {
         </span>
         <Dot />
         <span>{data?.readingTime}</span>
+        <ViewCount slug={data?.slug} />
       </div>
       {/* @ts-ignore   */}
       <MDXContent code={data?.mdxSource} components={MdxComponent} />

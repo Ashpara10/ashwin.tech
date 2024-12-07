@@ -80,9 +80,9 @@ const Header = () => {
                 )}
               >
                 {theme === "dark" ? (
-                  <Sun className="text-sm stroke-black" />
+                  <Sun className="text-sm stroke-orange-950" />
                 ) : (
-                  <Moon className="text-sm stroke-white" />
+                  <Moon className="text-sm stroke-purple-100" />
                 )}
               </motion.button>
             )}
