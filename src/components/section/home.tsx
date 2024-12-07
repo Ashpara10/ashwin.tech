@@ -49,10 +49,10 @@ const HomeSection = () => {
           <b className="font-semibold ">web experiences</b>. Currently a
           sophomore pursuing my bachelor&apos;s degree in Computer Applications.
         </span> */}
-        <div className="opacity-80 flex flex-col ">
+        <div className="dark:opacity-90 opacity-80 flex flex-col ">
           <span>
-            I am a frontend engineer passionate about crafting meaningful
-            digital experiences that seamlessly combine design and technology.
+            I am a frontend developer driven by a passion for building impactful
+            digital experiences that blend design and technology.
           </span>
           <span className="mt-6">
             Developing skills through hands-on projects, exploring my interests

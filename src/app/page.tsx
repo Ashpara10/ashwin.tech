@@ -18,7 +18,7 @@ const Page = async () => {
       <HomeSection />
       {/* @ts-ignore */}
       <BlogSection />
-      <div className="max-w-xl mt-10 flex flex-col opacity-80">
+      <div className="max-w-xl mt-10 flex flex-col dark:opacity-90 opacity-80">
         <span className="mt-4">
           I’m open to exploring new opportunities, collaborating on exciting
           projects, or simply connecting. Feel free to reach out via{" "}
