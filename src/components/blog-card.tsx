@@ -10,22 +10,13 @@ const BlogCard: FC<Post> = (data) => {
       key={data?.slug}
       className="cursor-pointer hover:dark:bg-dark-border/30 w-full px-1 flex items-center justify-between group rounded-lg  transition-colors duration-300"
     >
-      <h2 className="w-3/4 truncate leading-tight tracking-tight hover:underline">
+      <h2 className="w-3/4 truncate text-sm md:text-base leading-tight tracking-tight hover:underline">
         {data?.title}
       </h2>
 
       <div className="ml-3 w-fit opacity-75 text-sm flex items-center justify-start ">
-        {/* <span className=" ">
-          {new Date(data?.createdAt).toLocaleString("en", {
-            month: "long",
-            day: "2-digit",
-            year: "numeric",
-          })}{" "}
-        </span>
-        <Dot /> */}
         <span>{data?.readingTime}</span>
       </div>
-      {/* </div> */}
     </Link>
   );
 };

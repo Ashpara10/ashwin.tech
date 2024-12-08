@@ -17,15 +17,6 @@ const HomeSection = () => {
     <motion.div id="home" className="max-w-xl w-full  flex flex-col  ">
       <motion.div className="w-full flex items-center justify-between">
         <div className="w-full flex items-center justify-center">
-          {/* <Image
-            src={"/circle.png"}
-            className="size-12 aspect-square rounded-full border border-gray-300 dark:border-dark-border"
-            alt="pfp"
-            style={{ objectFit: "cover" }}
-            width={46}
-            height={46}
-            quality={100}
-          /> */}
           <div className="size-12 rounded-full aspect-square bg-gradient-to-tr from-sky-200 via-blue-500 to-sky-800" />
 
           <div className="w-full ml-3 flex flex-col items-start justify-center">
@@ -44,12 +35,7 @@ const HomeSection = () => {
 
       <motion.div className="flex flex-col items-start justify-center mt-6">
         <span className="text-lg tracking-tight font-medium ">Bio</span>
-        {/* <span className="my-2 w-full leading-tight opacity-80 ">
-          Crafting powerful and interactive{" "}
-          <b className="font-semibold ">web experiences</b>. Currently a
-          sophomore pursuing my bachelor&apos;s degree in Computer Applications.
-        </span> */}
-        <div className="dark:opacity-90 opacity-80 flex flex-col ">
+        <div className="dark:opacity-90 opacity-80 text-sm md:text-base flex flex-col ">
           <span>
             I am a frontend developer driven by a passion for building impactful
             digital experiences that blend design and technology.
@@ -60,15 +46,8 @@ const HomeSection = () => {
             degree in Computer Applications..
           </span>
         </div>
-
-        {/* <div className="mt-4">
-          <a href="https://skillicons.dev" className="flex flex-col gap-2">
-            <img src="https://skillicons.dev/icons?i=javascript,typescript,react,nextjs,nodejs,prisma,css,golang,git,github" />
-            <img src="https://skillicons.dev/icons?i=bash,express,vercel,mysql,c,docker,mongodb,supabase,firebase,tailwindcss" />
-          </a>
-        </div> */}
       </motion.div>
-      <div className="w-full gap-2 flex flex-wrap  mt-4 items-center justify-start">
+      <div className="w-full gap-2 text-sm md:text-base flex flex-wrap  mt-4 items-center justify-start">
         {socialLinks.map((link, i) => {
           return (
             <Link
