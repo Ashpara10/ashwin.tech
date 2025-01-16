@@ -27,7 +27,7 @@ type BlogPageProps = {
 
 const BlogPage: FC<{ data: Post }> = ({ data }) => {
   return (
-    <article className="w-full max-w-xl flex flex-col  pb-10 items-center justify-center">
+    <article className="w-full max-w-2xl flex flex-col  pb-10 items-center justify-center">
       <h2 className="tracking-tight  w-full text-left font-medium text-xl">
         {data?.title}
       </h2>

@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@mantine/hooks": "^7.14.1",
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "firebase": "^11.0.2",
     "framer-motion": "^11.11.11",
@@ -29,7 +31,8 @@
     "shiki": "^1.22.2",
     "slug": "^10.0.0",
     "tailwind-merge": "^2.5.4",
-    "tailwind-scrollbar": "^3.1.0"
+    "tailwind-scrollbar": "^3.1.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@content-collections/core": "^0.7.3",

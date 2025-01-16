@@ -11,6 +11,10 @@ type Props = {
   children: React.ReactNode;
 };
 
+const ListItem = (props: Props) => {
+  return <li className="w-full leading-tight">{props.children}</li>;
+};
+
 const AnchorTag = (props: AnchorTagProps) => {
   return (
     <a
@@ -60,14 +64,14 @@ const StyledHeading3 = (props: Props) => {
 
 const UnorderedList = (props: Props) => {
   return (
-    <ul className="w-full opacity-90 list-inside px-3 md:p-0 list-disc flex gap-y-1.5 mt-2  flex-col   ">
+    <ul className="w-full opacity-90 leading-snug list-inside px-3 md:p-0 list-disc flex gap-y-1 mt-2  flex-col   ">
       {props.children}
     </ul>
   );
 };
 const OrderedList = (props: Props) => {
   return (
-    <ol className="w-full opacity-90 list-decimal px-3 md:p-0 list-inside flex gap-y-1.5 mt-2 flex-col ">
+    <ol className="w-full opacity-90 leading-snug list-decimal px-3 md:p-0 list-inside flex gap-y-1 mt-2 flex-col ">
       {props.children}
     </ol>
   );
@@ -77,7 +81,7 @@ const RoundedImage = (props: { src: string }) => {
   const [IsImageLoaded, setIsImageLoaded] = useState(true);
 
   return (
-    <div className="border-2 my-2 dark:border-dark-border border-gray-200 w-full overflow-hidden rounded-xl ">
+    <div className="border-2 my-2 mt-2 dark:border-dark-border border-gray-200 w-full overflow-hidden rounded-xl ">
       <Image
         alt=""
         className={`
@@ -86,7 +90,7 @@ const RoundedImage = (props: { src: string }) => {
         src={props.src}
         width={800}
         height={900}
-        onLoadingComplete={() => setIsImageLoaded(false)}
+        onLoad={() => setIsImageLoaded(false)}
       />
     </div>
   );
@@ -98,7 +102,7 @@ const StrongTag = (props: Props) => {
 
 const Para = (props: Props) => {
   return (
-    <p className="w-full text-base dark:text-white/80 text-black/80  ">
+    <p className="w-full mt-2 text-base leading-snug dark:text-white/80 text-black/80  ">
       {props.children}
     </p>
   );
@@ -115,4 +119,5 @@ export const MdxComponent = {
   a: AnchorTag,
   blockquote: BlockQuote,
   p: Para,
+  li: ListItem,
 };

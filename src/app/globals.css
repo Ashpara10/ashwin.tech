@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 ::view-transition-group(root) {
   animation-timing-function: var(--expo-out);
 }
@@ -40,8 +28,6 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 figure[data-rehype-pretty-code-figure] {
@@ -159,4 +145,9 @@ pre {
 }
 code {
   @apply py-3  whitespace-break-spaces;
+}
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }
