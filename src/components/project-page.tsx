@@ -16,15 +16,15 @@ const ProjectPage: FC<{ data: Project }> = ({ data }) => {
           <Image
             width={60}
             height={60}
-            className="aspect-square rounded-xl  size-12"
+            className="aspect-square rounded-xl  size-10 md:size-12"
             src={data.icon!}
             alt={data.title}
           />
           <div className="flex ml-4 flex-col">
-            <h2 className="tracking-tight leading-tight w-full text-left font-medium text-xl">
+            <h2 className="tracking-tight leading-tight w-full text-left font-medium md:text-xl">
               {data?.title}
             </h2>
-            <p className="w-full opacity-80 text-left font-normal">
+            <p className="w-full opacity-80 text-left text-sm md:text-base font-normal">
               {data?.description}
             </p>
           </div>
