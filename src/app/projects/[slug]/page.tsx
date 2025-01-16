@@ -1,6 +1,6 @@
-import BlogPage from "@/components/blog-page";
+import ProjectPage from "@/components/project-page";
 // import { getBlogBySlug } from "@/lib/actions";
-import { allPosts } from "content-collections";
+import { allProjects } from "content-collections";
 import { Metadata } from "next";
 import { FC } from "react";
 
@@ -10,7 +10,7 @@ type PageProps = {
 };
 
 const getBlogBySlug = async (slug: string) => {
-  return allPosts.find((post) => post.slug === slug);
+  return allProjects.find((post) => post.slug === slug);
 };
 
 export async function generateMetadata({
@@ -33,7 +33,7 @@ const Page: FC<PageProps> = async ({ params }) => {
   return (
     <div className="w-full flex flex-col px-3 items-center justify-start min-h-screen">
       {/* @ts-ignore */}
-      <BlogPage data={blog} />
+      <ProjectPage data={blog} />
     </div>
   );
 };

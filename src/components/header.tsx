@@ -7,20 +7,12 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useId, useState } from "react";
+import { Button } from "./ui/button";
 
 const navItems = {
   "/": {
     name: "Home",
   },
-  // "/about": {
-  //   name: "About",
-  // },
-  "/blogs": {
-    name: "Blog",
-  },
-  // "/works": {
-  //   name: "Works",
-  // },
   "/guestbook": {
     name: "Guestbook",
   },
@@ -49,6 +41,7 @@ const Header = () => {
   const ref = useClickOutside(() => {
     setShow(false);
   });
+  const MotionButton = motion.create(Button);
 
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
@@ -87,13 +80,20 @@ const Header = () => {
               </motion.button>
             )}
 
-            <motion.button
+            {/* <motion.button
               layoutId={`popover-menu-${uniqueId}`}
               onClick={() => setShow(true)}
               className=" focus-within:outline-none border dark:border-dark-border border-neutral-300 dark:bg-dark-bg bg-white p-2 rounded-xl"
             >
               <Menu className="size-6 opacity-80" />
-            </motion.button>
+            </motion.button> */}
+            <MotionButton
+              layoutId={`popover-menu-${uniqueId}`}
+              onClick={() => setShow(true)}
+              className=" focus-within:outline-none border dark:border-neutral-700 border-neutral-300/80 dark:bg-neutral-800 bg-white p-2 rounded-xl"
+            >
+              <Menu className="size-6 opacity-80" />
+            </MotionButton>
           </div>
           <AnimatePresence>
             {show && (

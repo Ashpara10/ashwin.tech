@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,33 +11,42 @@ const config: Config = {
     extend: {
       colors: {
         dark: {
-          bg: "#282828", // Background
-          bg_soft: "#3c3836", // Softer background
-          fg: "#ebdbb2", // Foreground
-          red: "#fb4934", // Red
-          green: "#b8bb26", // Green
-          yellow: "#fabd2f", // Yellow
-          blue: "#83a598", // Blue
-          purple: "#d3869b", // Purple
-          aqua: "#8ec07c", // Aqua/Cyan
-          orange: "#fe8019", // Orange
+          bg: "#282828",
+          bg_soft: "#3c3836",
+          fg: "#ebdbb2",
+          red: "#fb4934",
+          green: "#b8bb26",
+          yellow: "#fabd2f",
+          blue: "#83a598",
+          purple: "#d3869b",
+          aqua: "#8ec07c",
+          orange: "#fe8019",
           border: "#404040",
         },
         light: {
-          bg: "#fbf1c7", // Background
-          bg_soft: "#ebdbb2", // Softer background
-          fg: "#282828", // Foreground
-          red: "#cc241d", // Red
-          green: "#98971a", // Green
-          yellow: "#d79921", // Yellow
-          blue: "#458588", // Blue
-          purple: "#b16286", // Purple
-          aqua: "#689d6a", // Aqua/Cyan
-          orange: "#d65d0e", // Orange
+          bg: "#fbf1c7",
+          bg_soft: "#ebdbb2",
+          fg: "#282828",
+          red: "#cc241d",
+          green: "#98971a",
+          yellow: "#d79921",
+          blue: "#458588",
+          purple: "#b16286",
+          aqua: "#689d6a",
+          orange: "#d65d0e",
         },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [require("tailwind-scrollbar"), require("tailwind-merge")],
+  plugins: [
+    require("tailwind-scrollbar"),
+    require("tailwind-merge"),
+    require("tailwindcss-animate"),
+  ],
 };
 export default config;

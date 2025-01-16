@@ -19,9 +19,9 @@ const item: Variants = {
 
 const BlogSection: FC = () => {
   return (
-    <motion.div variants={item} className="block max-w-xl w-full mt-6">
+    <motion.div variants={item} className="block w-full mt-6">
       <div className="">
-        <h3 className="text-lg  tracking-tight font-medium ">Writings</h3>
+        <h3 className="text-2xl  tracking-tight font-medium ">Writings</h3>
       </div>
       <div className="grid grid-cols-1 mt-2 gap-2">
         {allPosts
