@@ -2,46 +2,44 @@
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
 
 const HomeSection = () => {
-  const socialLinks = [
-    { name: "Github", link: "https://github.com/Ashpara10/" },
-    { name: "Resume", link: "https://dub.sh/resume2025" },
-    { name: "Twitter", link: "https://x.com/70Ashrt" },
-    {
-      name: "Linkedin",
-      link: "https://www.linkedin.com/in/ashwin-parande-657653294/",
-    },
-  ];
-
-  const images = ["me1.jpg", "me2.jpg", "me4.jpg", "me3.jpg"];
-
   return (
-    <motion.div id="home" className="w-full  flex flex-col  ">
-      <motion.div className="w-full flex items-center justify-start">
+    <motion.div
+      id="home"
+      className="w-full mx-auto mt-16  max-w-2xl  flex flex-col  "
+    >
+      {/* <div className=" w-full   max-w-2xl mx-auto mt-16 -z-10 border-t-2 border-dashed dark:border-dark-bg_soft " /> */}
+
+      <motion.div className="w-full mt-10 flex items-center justify-start">
         <div className="w-full flex items-center justify-center">
           <div className="w-full flex flex-col items-start justify-center">
             <div className="w-full flex items-center justify-between">
-              <span className="font-serif text-left text-3xl md:text-5xl  font-medium tracking-tight">
+              <span className="font-instrument-serif flex items-center justify-start text-left text-4xl md:text-5xl lg:text-6xl font-medium md:font-semibold ">
                 {" "}
-                Ashwin Parande🌻🌊
+                Ashwin Parande
+                <span className="tracking-tighter leading-none">🌻🌊</span>
               </span>
             </div>
           </div>
         </div>
       </motion.div>
-
-      <motion.div className="w-full flex flex-col items-start justify-center mt-6">
-        <div className="dark:opacity-90 gap-y-2 opacity-80 text-sm md:text-base leading-tight  flex flex-col ">
+      <motion.div className="w-full flex flex-col items-start justify-center mt-6 mb-2">
+        <div className=" gap-y-2 text-sm md:text-base font-medium text-neutral-700 dark:text-neutral-300  flex flex-col ">
           <span>
             I am web developer based in India with an innate passion and
-            curiosity for art, programming and all things tech.
+            curiosity for <br className="hidden md:flex" /> art, programming and
+            all things tech.
           </span>
+          <video width="100%" autoPlay muted playsInline loop className="mt-2">
+            <source src="/banner.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
-          <span className="mt-3">
+          <span className="mt-4 whitespace-pre-wrap">
             I like to read articles (sometimes) and watch movies and play
-            football. I also write sometimes. You can reach me at
+            football. <br className="hidden md:flex" /> I also write sometimes.
+            You can reach me at
             <Link
               className="text-blue-700 mx-2 opacity-100 dark:text-blue-500"
               target="_blank"
@@ -52,59 +50,11 @@ const HomeSection = () => {
           </span>
         </div>
       </motion.div>
-      <div className="w-full gap-2 text-sm md:text-base flex flex-wrap  mt-4 items-center justify-start">
-        {socialLinks.map((link, i) => {
-          return (
-            <Link key={i} href={link?.link} target="_blank">
-              <SocialLink name={link?.name} />
-            </Link>
-          );
-        })}
-      </div>
-      <LargeImageContainer images={images} />
-      <SmallImageContainer images={images} />
     </motion.div>
   );
 };
 
-const SocialLink = ({ name }: { name: string }) => {
-  let icon: string;
-
-  switch (name) {
-    case "Github":
-      icon = "github.svg";
-      break;
-    case "Resume":
-      icon = "globe.svg";
-      break;
-    case "Twitter":
-      icon = "x.svg";
-      break;
-    case "Linkedin":
-      icon = "linkedin.svg";
-      break;
-    default:
-      icon = "github.svg";
-      break;
-  }
-
-  return (
-    <Button size={"sm"}>
-      <Image
-        src={`/${icon}`}
-        className="aspect-square size-5"
-        alt={name}
-        width={20}
-        height={20}
-      />
-      <span className="ml-2 opacity-90 text-black dark:text-white tracking-tight leading-snug mr-2 ">
-        {name}
-      </span>
-    </Button>
-  );
-};
-
-const LargeImageContainer = ({
+export const LargeImageContainer = ({
   images,
 }: // imagesContainerVariants
 {
@@ -117,10 +67,8 @@ const LargeImageContainer = ({
       spacing: -100,
     },
     visible: {
-      // opacity: 1,
-      spacing: -2,
       transition: {
-        staggerChildren: 0.1, // Adjust the stagger duration as needed
+        staggerChildren: 0.2, // Adjust the stagger duration as needed
       },
     },
   };
@@ -156,17 +104,17 @@ const LargeImageContainer = ({
               whileHover={{
                 scale: 1.08,
                 zIndex: 2,
+                x: -10,
+                y: -20,
               }}
-              className=" cursor-pointer"
+              className="aspect-square hover:shadow-2xl rounded-3xl overflow-hidden size-48 cursor-pointer"
             >
               <Image
                 style={{
                   objectFit: "cover",
                 }}
                 priority
-                className="aspect-square rounded-2xl md:max-w-[240px] "
-                width={500}
-                height={500}
+                fill
                 alt=""
                 src={`/me/${image}`}
               />
@@ -213,24 +161,33 @@ const SmallImageContainer = ({
   return (
     <motion.div className="w-full relative  md:hidden flex items-center justify-center mt-10">
       <motion.div
-        variants={imagesContainerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-2 gap-2"
+        // variants={imagesContainerVariants}
+        // initial="hidden"
+        // animate="visible"
+        className="relative h-[200px] w-full  flex"
       >
         {images.map((image, i) => {
           return (
             <motion.div
               key={i}
-              variants={itemVariants}
-              className=" cursor-pointer"
+              style={{
+                zIndex: images.length - i,
+              }}
+              // variants={itemVariants}
+              initial={{
+                x: 0,
+              }}
+              whileInView={{
+                x: i * 50,
+              }}
+              className="absolute  shadow-2xl cursor-pointer"
             >
               <Image
                 style={{
                   objectFit: "cover",
                 }}
                 priority
-                className="aspect-square rounded-2xl md:max-w-[240px] "
+                className="aspect-square  size-48 rounded-2xl  "
                 width={500}
                 height={500}
                 alt=""

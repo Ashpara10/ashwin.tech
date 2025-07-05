@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full text-sm md:text-base mt-4 flex flex-col dark:opacity-90 opacity-80">
+    <div className="w-full max-w-2xl mx-auto font-aspekta text-sm md:text-base font-medium text-neutral-700 dark:text-neutral-300 mt-4 flex flex-col ">
       <span className="mt-4">
         I’m open to exploring new opportunities, collaborating on exciting
         projects, or simply connecting. Feel free to reach out via{" "}

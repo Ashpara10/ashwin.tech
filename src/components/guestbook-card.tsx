@@ -21,13 +21,16 @@ const GuestBookCard = () => {
       setUser(null);
     }
   });
+
   return (
-    <div className={cn(path === "/" ? "mt-12" : " mt-4")}>
-      <h2 className="w-full  text-left text-2xl font-medium ">Guestbook 🌱</h2>
-      <span className="leading-tight opacity-80">
+    <div className={cn("font-aspekta mt-10 mx-auto w-full max-w-2xl")}>
+      <h2 className="w-full text-left text-lg tracking-tight font-medium font-inter">
+        Guestbook 🌱
+      </h2>
+      <span className="leading-tight dark:text-neutral-300 text-neutral-600 text-sm font-medium md:text-base mt-2 font-aspekta">
         SignIn with your google account to leave a message in the guestbook
       </span>
-      <div className="mt-2 py-3 bg-neutral-100 dark:bg-neutral-700  rounded-xl px-3 border border-neutral-200 dark:border-neutral-600 w-full">
+      <div className="mt-4 px-6 py-3 bg-amber-50 dark:bg-neutral-800 border border-neutral-200 dark:border-dark-bg_soft w-full">
         <div className="flex flex-col items-start justify-center">
           {!user && (
             <button
@@ -35,7 +38,7 @@ const GuestBookCard = () => {
                 const provider = new GoogleAuthProvider();
                 signInWithPopup(auth, provider);
               }}
-              className="underline flex items-center justify-center gap-2 underline-offset-2 opacity-80 mt-2 "
+              className="underline flex items-center justify-center gap-2 underline-offset-2 text-neutral-800 dark:text-neutral-300 "
             >
               {" "}
               SignIn with Google

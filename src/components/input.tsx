@@ -40,20 +40,20 @@ const Input = ({ user }: { user: User }) => {
             height={40}
             src={user?.photoURL as string}
             alt={user?.displayName as string}
-            className="aspect-square rounded-xl"
+            className="aspect-square rounded-2xl size-12"
           />
-          <div className="flex flex-col  w-full">
-            <span className="font-medium leading-none text-base md:text-lg">
+          <div className="flex flex-col w-full">
+            <span className="font-medium leading-none text-lg">
               {user?.displayName}
             </span>
-            <span className="text-sm leading-none opacity-80">
+            <span className="text-sm text-neutral-700 dark:text-neutral-300 mt-0.5 leading-none ">
               {user?.email}
             </span>
           </div>
         </div>
       </div>
       <div className="w-full flex flex-col items-start justify-center mb-4">
-        <div className="w-full flex rounded-xl items-center border   border-gray-300/70 dark:border-neutral-600 justify-center gap-x-2 ">
+        <div className="w-full flex rounded-xl items-center border   border-gray-300/70 dark:border-dark-bg_soft justify-center gap-x-2 ">
           <input
             type="text"
             value={msg}
@@ -74,7 +74,7 @@ const Input = ({ user }: { user: User }) => {
           </button>
         </div>
         <button
-          className="underline underline-offset-2 opacity-80 px-2 py-1.5 rounded-lg flex items-center justify-center "
+          className="underline text-sm text-neutral-800 dark:text-neutral-300 underline-offset-2 opacity-80 px-2 py-1.5 rounded-lg flex items-center justify-center "
           onClick={() => {
             signOut(auth);
           }}
