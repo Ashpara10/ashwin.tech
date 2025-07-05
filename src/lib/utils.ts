@@ -114,3 +114,7 @@ export const getTracksFromSpotify = async (ids: string[]) => {
   isLoading = false;
   return { data: data?.tracks as Track[], isLoading };
 };
+
+export const capitalize = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};

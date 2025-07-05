@@ -1,18 +1,20 @@
-import GuestBookCard from "@/components/guestbook-card";
+import Guestbook from "@/components/guestbook";
 import Footer from "@/components/section/footer";
-import HomeSection from "@/components/section/home";
+import HomeSection, { LargeImageContainer } from "@/components/section/home";
 import Projects from "@/components/section/projects";
+import SocialLinks from "@/components/section/social-links";
 
 const Page = async () => {
+  const images = ["me1.jpg", "me2.jpg", "me4.jpg", "me3.jpg"];
   return (
-    <div className="w-full px-3 flex flex-col items-center justify-start">
-      <div className="max-w-2xl w-full flex flex-col">
-        <HomeSection />
-        <Projects />
-        {/* <BlogSection /> */}
-        <GuestBookCard />
-        <Footer />
-      </div>
+    <div className="w-full px-4 pb-8 relative">
+      <HomeSection />
+      <SocialLinks />
+
+      <Projects />
+      {/* <Guestbook /> */}
+
+      <Footer />
     </div>
   );
 };

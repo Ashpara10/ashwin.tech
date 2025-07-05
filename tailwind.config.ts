@@ -41,6 +41,11 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+        "instrument-serif": ["var(--font-instrument-serif)"],
+        aspekta: ["var(--font-aspekta)"],
+      },
     },
   },
   plugins: [
