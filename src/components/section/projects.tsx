@@ -11,17 +11,20 @@ const Projects = () => {
       className=" w-full max-w-2xl mx-auto font-aspekta  flex flex-col   mt-12"
     >
       <motion.div className="flex flex-col items-start justify-center ">
-        <h2 className="w-full text-left text-lg tracking-tight font-medium font-inter">
+        <h2 className="w-full text-left text-xl tracking-tight font-medium font-inter">
           Projects
         </h2>
+        <p className=" font-inter text-base text-neutral-700 dark:text-neutral-400 font-medium flex flex-col">
+          These are some of the projects that I have worked on during my internships and personal projects
+        </p>
       </motion.div>
-      <motion.div className="mt-3 flex flex-col space-y-3 ">
+      <motion.div className="mt-3 flex flex-col font-inter space-y-3 ">
         {allProjects?.map((data, i) => {
           return (
             <Link href={data?.url as string} target="_blank" key={i}>
               <motion.div
                 key={i}
-                className="flex w-full bg-amber-50 dark:bg-neutral-800 border border-neutral-200  dark:border-dark-bg_soft p-3 hover:bg-amber-100 transition-all duration-300 dark:hover:bg-border"
+                className="flex w-full bg-amber-50 dark:bg-neutral-800 border border-neutral-200  dark:border-dark-bg_soft p-3 hover:bg-amber-100 transition-all duration-300 dark:hover:bg-border rounded-lg"
               >
                 <Image
                   width={50}
@@ -31,10 +34,10 @@ const Projects = () => {
                   alt={data.title}
                 />
                 <div className="flex ml-4 mt-1 flex-col items-start justify-start">
-                  <h2 className="font-medium tracking-tight leading-tight ">
+                  <h2 className="text-lg tracking-tight leading-tight ">
                     {data.title}
                   </h2>
-                  <p className="text-neutral-600 font-medium dark:text-neutral-300 text-sm leading-tight">
+                  <p className="text-neutral-600 font-medium dark:text-neutral-300 leading-tight">
                     {data.description}
                   </p>
                 </div>

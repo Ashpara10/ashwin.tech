@@ -45,6 +45,8 @@ const config: Config = {
         inter: ["var(--font-inter)"],
         "instrument-serif": ["var(--font-instrument-serif)"],
         aspekta: ["var(--font-aspekta)"],
+        stix: ["var(--font-stix)"],
+        libre: ["var(--font-libre)"],
       },
     },
   },

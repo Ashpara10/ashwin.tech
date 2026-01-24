@@ -4,6 +4,8 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { auth, db } from "../lib/firebase";
+import { Button } from "./ui/button";
+import { ArrowUp } from "lucide-react";
 
 const Input = ({ user }: { user: User }) => {
   const [msg, setMsg] = useState("");
@@ -33,31 +35,12 @@ const Input = ({ user }: { user: User }) => {
 
   return (
     <div className="w-full max-w-2xl  flex flex-col  items-center justify-center gap-x-2  ">
-      <div className="w-full flex mb-3  items-center justify-between">
-        <div className="w-full px-1 mt-2 flex items-center justify-start gap-2">
-          <Image
-            width={40}
-            height={40}
-            src={user?.photoURL as string}
-            alt={user?.displayName as string}
-            className="aspect-square rounded-2xl size-12"
-          />
-          <div className="flex flex-col w-full">
-            <span className="font-medium leading-none text-lg">
-              {user?.displayName}
-            </span>
-            <span className="text-sm text-neutral-700 dark:text-neutral-300 mt-0.5 leading-none ">
-              {user?.email}
-            </span>
-          </div>
-        </div>
-      </div>
       <div className="w-full flex flex-col items-start justify-center mb-4">
-        <div className="w-full flex rounded-xl items-center border   border-gray-300/70 dark:border-dark-bg_soft justify-center gap-x-2 ">
+        <div className="flex items-center border-2 border-neutral-200 dark:border-neutral-800 p-1 rounded-xl focus-within:outline-double focus-within:outline-offset-2 focus-within:outline-neutral-200 focus-within:dark:outline-neutral-800 w-full justify-center gap-x-2">
           <input
             type="text"
             value={msg}
-            className="w-full bg-transparent focus-visible:outline-none px-3 py-2"
+            className="w-full caret-sky-500 text-white  bg-transparent focus-visible:outline-none tracking-normal font-inter px-3 py-2"
             onKeyDown={(e) => {
               if (e?.key === "Enter") {
                 e.preventDefault();
@@ -66,12 +49,14 @@ const Input = ({ user }: { user: User }) => {
             }}
             onChange={(e) => setMsg(e?.target?.value)}
           />
-          <button
+          <Button
             onClick={() => addMessage(msg, user?.displayName as string)}
-            className="bg-black text-white dark:text-black font-medium dark:bg-white px-4 py-2 m-1 rounded-xl flex items-center justify-center "
+            // size={"icon"}
+            className="rounded-xl dark:bg-white font-inter dark:text-black flex-shrink-0 "
           >
+            {/* <ArrowUp strokeWidth={3} className="size-4 dark:stroke-black" /> */}
             Send
-          </button>
+          </Button>
         </div>
         <button
           className="underline text-sm text-neutral-800 dark:text-neutral-300 underline-offset-2 opacity-80 px-2 py-1.5 rounded-lg flex items-center justify-center "

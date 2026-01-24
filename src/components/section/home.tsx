@@ -4,52 +4,37 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HomeSection = () => {
+  const images = ["me1.jpg", "me2.jpg", "me4.jpg", "me3.jpg"];
   return (
     <motion.div
       id="home"
-      className="w-full mx-auto mt-16  max-w-2xl  flex flex-col  "
+      className="w-full mx-auto mt-16  max-w-xl  flex flex-col  "
     >
-      {/* <div className=" w-full   max-w-2xl mx-auto mt-16 -z-10 border-t-2 border-dashed dark:border-dark-bg_soft " /> */}
-
-      <motion.div className="w-full mt-10 flex items-center justify-start">
-        <div className="w-full flex items-center justify-center">
-          <div className="w-full flex flex-col items-start justify-center">
-            <div className="w-full flex items-center justify-between">
-              <span className="font-instrument-serif flex items-center justify-start text-left text-4xl md:text-5xl lg:text-6xl font-medium md:font-semibold ">
-                {" "}
-                Ashwin Parande
-                <span className="tracking-tighter leading-none">🌻🌊</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      <h1 className=" tracking-tighter flex items-center justify-start text-left text-2xl text-white">
+        {" "}
+        Ashwin Parande
+        <span className="tracking-tighter leading-none">🌻🌊</span>
+      </h1>
       <motion.div className="w-full flex flex-col items-start justify-center mt-6 mb-2">
-        <div className=" gap-y-2 text-sm md:text-base font-medium text-neutral-700 dark:text-neutral-300  flex flex-col ">
-          <span>
-            I am web developer based in India with an innate passion and
-            curiosity for <br className="hidden md:flex" /> art, programming and
-            all things tech.
-          </span>
-          <video width="100%" autoPlay muted playsInline loop className="mt-2">
-            <source src="/banner.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+        <p className="">
+          I am web developer based in India with an innate passion and
+          curiosity for <u>art</u>, <u>programming</u> and all things tech.
+        </p>
 
-          <span className="mt-4 whitespace-pre-wrap">
-            I like to read articles (sometimes) and watch movies and play
-            football. <br className="hidden md:flex" /> I also write sometimes.
-            You can reach me at
-            <Link
-              className="text-blue-700 mx-2 opacity-100 dark:text-blue-500"
-              target="_blank"
-              href={"mailto:ashwinparande1156610c@gmail.com"}
-            >
-              ashwinparande1156610c@gmail.com
-            </Link>{" "}
-          </span>
-        </div>
+        <p className="mt-4">
+          I like to read articles (sometimes) and watch movies and play
+          <u className="ml-1">football</u>.
+          I also write sometimes.
+          You can reach me at <Link
+            className="text-sky-700 mx-2 opacity-100 dark:text-sky-500"
+            target="_blank"
+            href={"mailto:ashwinparande1156610c@gmail.com"}
+          >
+            ashwinparande1156610c@gmail.com
+          </Link>{" "}
+        </p>
       </motion.div>
+
     </motion.div>
   );
 };
@@ -57,10 +42,10 @@ const HomeSection = () => {
 export const LargeImageContainer = ({
   images,
 }: // imagesContainerVariants
-{
-  images: string[];
-  // imagesContainerVariants: Variants;
-}) => {
+  {
+    images: string[];
+    // imagesContainerVariants: Variants;
+  }) => {
   const imagesContainerVariants: Variants = {
     hidden: {
       // opacity: 0,
@@ -128,10 +113,10 @@ export const LargeImageContainer = ({
 const SmallImageContainer = ({
   images,
 }: // imagesContainerVariants
-{
-  images: string[];
-  // imagesContainerVariants: Variants;
-}) => {
+  {
+    images: string[];
+    // imagesContainerVariants: Variants;
+  }) => {
   const imagesContainerVariants: Variants = {
     hidden: {
       opacity: 0,

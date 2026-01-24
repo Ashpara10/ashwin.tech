@@ -46,7 +46,7 @@ const Guestbook = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className=" mt-6 border border-neutral-200 dark:border-dark-border"
+          className=" mt-6 border border-neutral-200 dark:border-neutral-700"
         >
           {chat?.docs
             ?.sort((a, b) => a?.data()?.createdAt - b?.data().createdAt)

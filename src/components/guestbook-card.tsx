@@ -23,14 +23,14 @@ const GuestBookCard = () => {
   });
 
   return (
-    <div className={cn("font-aspekta mt-10 mx-auto w-full max-w-2xl")}>
-      <h2 className="w-full text-left text-lg tracking-tight font-medium font-inter">
+    <div className={cn(" mt-2 mx-auto w-full max-w-xl")}>
+      <h2 className="w-full text-left text-xl tracking-tight dark:text-white">
         Guestbook 🌱
       </h2>
-      <span className="leading-tight dark:text-neutral-300 text-neutral-600 text-sm font-medium md:text-base mt-2 font-aspekta">
-        SignIn with your google account to leave a message in the guestbook
-      </span>
-      <div className="mt-4 px-6 py-3 bg-amber-50 dark:bg-neutral-800 border border-neutral-200 dark:border-dark-bg_soft w-full">
+      <p className="text-base mt-2 text-neutral-700 dark:text-neutral-400  flex flex-col">
+        Write something in this public log. SignIn with your google account to leave a message.
+      </p>
+      <div className="mt-2">
         <div className="flex flex-col items-start justify-center">
           {!user && (
             <button
